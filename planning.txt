@@ -1,0 +1,83 @@
+voting application 
+what ?
+
+A functionality where user can give vote to the given set of candidates 
+
+models ? -- > what of data schema --> required 
+
+Routes ? -- > EndPoints 
+
+sbse phle thing about what is a functionality in the application  --> fixed functionality
+
+1. user sign in / sign up 
+
+2. see the list of candidates
+
+3. vote one of the candidates
+
+4. live vote checking --> vote counting 
+   there is a route which shows the list of candidate and their live vote counts sorted by their vote count 
+
+5. adhar -> user data must contain their one unique goverment id proof named : aadhar card number
+   humlog jb user ko application me signup krayenge to usko ek unique adhhar no. chahiye -->unique no, adhar signup --> chahiye ==> in india that are aadhar -- > adhar card no.
+
+  -- user account banane ke waqt --> adhar card no hona chahiye 
+   login credentials is  --> adhhar card no , and username and password hoga 
+   email, mobile no se mtlb nhi hai
+
+6. there should be one admin who can only maintain the table of candidate and he can't able to vote at all --> Admin  --> enteries create , delete the electors 
+
+7. user can change their password
+
+8. user can login only with aadhar card number and password 
+
+9. admin can't vote at all 
+
+--------------------------------------------------------------------------------------------------------------
+
+Routes  
+      -> EndPoints kon konse aur / kis name se hona chahiye
+
+User Authentication : 
+   /signup: POST - Create a new user account.
+   /login: POST - Log in to an existing account. [ aadhar card number + password ]
+
+Voting: 
+   /candidates: GET  - get the list of candidates.
+   /vote/:candidateId: POST -- vote for a specific candidate.
+   
+Vote Counts:
+   /vote/counts: GET - get the list of candidates sorted by their vote counts.
+
+User Profile:
+  /profile: GET - Get the user's profile information.
+  /profile/password: PUT - Change the user's password.
+
+Admin candidate Management:
+  /candidates: POST -- Create a new candidate
+  /candidates/:candidateId: PUT - Update an existing candidate'
+  /candidates/:candidateId: DELETE -- Delete a candidate from the list 
+
+---------------------------------------------------------------------------------------------------------
+
+Flow diagram se -- > actually me visualizatiion mil jata hain..
+                     ki jo kuch bhi humlog bnana chah rhe hai,,// routes vgere jo endpoints hain //-- vo kaise kaise flow chalega //-- usme kaise kaise users kya kya click kr skta hain // konse endpoints pe ja skta hain
+
+-----------------------------------------------------------------------------------------------------------
+
+kisi bande ne signup kiya to jruri nhi ki usko signup krna wqt ki vo voter hain ya admin  ---> si default me --> vo 'voter' rhega Schema-->User
+
+---------------------------------------------------------------------------------------------------------------
+
+Array -- > ultimately kya store krne wala hain  --> array of object 
+votes : [
+   {
+       user : {
+           that is under() id  and that is oobject id  == exactly that is mongoDB id creation -- create at the time of creation of records
+       }
+   }
+]
+
+-------------------------------------------------------------------------------------------------------------
+
+jwt --> actually --> provide the Authentication kr payenge using through the token ki helps se
